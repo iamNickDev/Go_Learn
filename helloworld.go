@@ -45,7 +45,7 @@ func main() {
 	fmt.Println(studentName)
 	fmt.Println(i, j)
 	fmt.Printf("m has a value: %v and type: %T\n", m, m)
-	fmt.Printf("p has a value: %#p and type: %T\n", p, p)
+	fmt.Printf("p has a value: %#v and type: %T\n", p, p)
 	fmt.Printf("n has a value: %v and type: %T\n", n, n)
 	fmt.Printf("pointerValue has a value: %v and type: %T", pointerValue, pointerValue)
 
