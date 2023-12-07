@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"time"
 )
 
 const s string = "constant "
@@ -10,6 +11,8 @@ const s string = "constant "
 // This is HelloWorld - main function
 func main() {
 	fmt.Println("Hello world")
+
+	//----------------------------------------------------------------*********------------------------------------------------------------------
 
 	// Values
 	//String
@@ -42,6 +45,8 @@ func main() {
 	f := "apple"
 	fmt.Println(f)
 
+	//----------------------------------------------------------------*********------------------------------------------------------------------
+
 	//Constants - Go supports constants of character, string, boolean, and numeric values.
 	fmt.Print(s)
 
@@ -53,6 +58,8 @@ func main() {
 	fmt.Println(int64(dec))
 
 	fmt.Println(math.Sin(n))
+
+	//----------------------------------------------------------------*********------------------------------------------------------------------
 
 	// For Loop
 	//The most basic type, with a single condition.
@@ -84,6 +91,8 @@ func main() {
 		fmt.Println(n)
 	}
 
+	//----------------------------------------------------------------*********------------------------------------------------------------------
+
 	// If/Else
 	//Here’s a basic example.
 	if 7%2 == 0 {
@@ -113,4 +122,90 @@ func main() {
 	} else {
 		fmt.Println(num, "has multiple digits")
 	}
+
+	//----------------------------------------------------------------*********------------------------------------------------------------------
+
+	// Switch Statements - Switch statements express conditionals across many branches.
+
+	// basic switch.
+	g := 2
+	fmt.Print("write ", g, " as ")
+	switch g {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	}
+
+	//You can use commas to separate multiple expressions in the same case statement.
+	// We use the optional default case in this example as well.
+
+	switch time.Now().Weekday() {
+	case time.Saturday, time.Sunday:
+		fmt.Println("it's a weekend")
+	default:
+		fmt.Println("it's a weekday")
+	}
+
+	//switch without an expression is an alternate way to express if/else logic.
+	// Here we also show how the case expressions can be non-constants.
+
+	t := time.Now()
+
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("it's before noon")
+	default:
+		fmt.Println("It's a afternoon")
+	}
+
+	whatAmI := func(i interface{}) {
+		switch t := i.(type) {
+		case bool:
+			fmt.Println("I am a boolean")
+		case int:
+			fmt.Println("I am an integer")
+		default:
+			fmt.Printf("Don't know type %T\n", t)
+
+		}
+	}
+	whatAmI(true)
+	whatAmI(1)
+	whatAmI("hey")
+
+	//----------------------------------------------------------------*********------------------------------------------------------------------
+
+	//Arrays - In Go, an array is a numbered sequence of elements of a specific length.
+	//In typical Go code, slices are much more common; arrays are useful in some special scenarios.
+
+	var arr [5]int
+	fmt.Println("emp:", arr)
+
+	//We can set a value at an index using the
+	//array[index] = value syntax, and get a value with array[index].
+	arr[4] = 100
+	fmt.Println("set:", arr)
+	fmt.Println("get:", arr[4])
+
+	//The builtin len returns the length of an array.
+	fmt.Println("len:", arr)
+
+	//Use this syntax to declare and initialize an array in one line.
+	array := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(array)
+
+	//Array types are one-dimensional, but you can compose types
+	//to build multi-dimensional data structures.
+
+	var twoD [2][3]int
+
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 3; j++ {
+			twoD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d: ", twoD)
 }
