@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"slices"
 	"time"
 )
 
@@ -214,7 +215,74 @@ func main() {
 	//Slices - Slices are an important data type in Go,
 	//giving a more powerful interface to sequences than arrays.
 
+	//Unlike arrays, slices are typed only by the elements they contain (not the number of elements).
+	// An uninitialized slice equals to nil and has length 0.
 	var s []string
 	fmt.Println("uninit:", s, s == nil, len(s) == 0)
+
+	//To create an empty slice with non-zero length,
+	//use the builtin make. Here we make a slice of strings of length 3 (initially zero-valued).
+	//By default a new slice’s capacity is equal to its length; if we know the slice is going to grow ahead of time,
+	//it’s possible to pass a capacity explicitly as an additional parameter to make.
+	s = make([]string, 3)
+	fmt.Println("emp:", s, "len:", len(s), "cap:", cap(s))
+
+	//We can set and get just like with arrays.
+	s[0] = "a"
+	s[1] = "b"
+	s[2] = "c"
+	fmt.Println("set:", s)
+	fmt.Println("grt:", s[2])
+
+	//len returns the length of the slice as expected.
+	fmt.Println("len:", len(s))
+
+	//slices support several more that make them richer than arrays.
+	//One is the builtin append, which returns a slice containing one or more new values.
+	//Note that we need to accept a return value from append as we may get a new slice value.
+	s = append(s, "d")
+	s = append(s, "e", "f")
+	fmt.Println("spt:", s)
+
+	//Slices can also be copy’d.
+	//Here we create an empty slice c of the same length as s and copy into c from s.
+	copyLen := make([]string, len(s))
+	copy(copyLen, s)
+	fmt.Println("cpy:", c)
+
+	//Slices support a “slice” operator with the syntax slice[low:high].
+	//For example, this gets a slice of the elements s[2], s[3], and s[4].
+	l := s[2:5]
+	fmt.Println("sl1:", l)
+
+	// This slices up to (but excluding) s[5].
+	l2 := s[:5]
+	fmt.Println("sl2:", l2)
+
+	// And this slices up from (and including) s[2].
+	l3 := s[2:]
+	fmt.Println("sl3:", l3)
+
+	//We can declare and initialize a variable for slice in a single line as well.
+	singleLine := []string{"g", "h", "i", "j"}
+	fmt.Println("singleLine:", singleLine)
+
+	singleLine2 := []string{"g", "h", "i", "j"}
+	if slices.Equal(singleLine, singleLine2) {
+		fmt.Println("singleLine == singleLine2")
+	}
+
+	//Slices can be composed into multi-dimensional data structures.
+	//The length of the inner slices can vary,
+	//unlike with multi-dimensional arrays.
+	towD := make([][]int, 3)
+	for i := 0; i < 3; i++ {
+		innerLen := i + 1
+		towD[i] = make([]int, innerLen)
+		for j := 0; j < innerLen; j++ {
+			towD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d: ", towD)
 
 }
