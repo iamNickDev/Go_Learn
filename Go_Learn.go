@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"maps"
 	"math"
 	"slices"
 	"time"
@@ -248,7 +249,7 @@ func main() {
 	//Here we create an empty slice c of the same length as s and copy into c from s.
 	copyLen := make([]string, len(s))
 	copy(copyLen, s)
-	fmt.Println("cpy:", c)
+	fmt.Println("cpy:", copyLen)
 
 	//Slices support a “slice” operator with the syntax slice[low:high].
 	//For example, this gets a slice of the elements s[2], s[3], and s[4].
@@ -285,4 +286,50 @@ func main() {
 	}
 	fmt.Println("2d: ", towD)
 
+	//----------------------------------------------------------------*********------------------------------------------------------------------
+
+	//Maps are Go’s built-in associative data type
+	//(sometimes called hashes or dicts in other languages)
+
+	// To create an empty map, use the builtin make: make(map[key-type]val-type).
+	m := make(map[string]int)
+
+	// Set key/value pairs using typical name[key] = val syntax.
+	m["k1"] = 7
+	m["k2"] = 13
+
+	// Printing a map with e.g. fmt.Println will show all of its key/value pairs.
+	fmt.Println("Mas:", m)
+
+	// Get a value for a key with name[key].
+	v1 := m["k1"]
+	fmt.Println("v1:", v1)
+
+	//If the key doesn’t exist, the zero value of the value type is returned.
+	v3 := m["k3"]
+	fmt.Println("v3:", v3)
+
+	// The builtin len returns the number of key/value pairs when called on a map.
+	fmt.Println("len:", len(m))
+
+	// The builtin delete removes key/value pairs from a map.
+	delete(m, "k2")
+	fmt.Println("map:", m)
+
+	// To remove all key/value pairs from a map, use the clear builtin.
+	clear(m)
+	fmt.Println("map", m)
+
+	_, prs := m["k2"]
+	fmt.Println("prs", prs)
+
+	// declare and initialize a new map in the same line with this syntax.
+	new := map[string]int{"foo": 1, "bar": 2}
+	fmt.Println("map:", new)
+
+	// The maps package contains a number of useful utility functions for maps.
+	new2 := map[string]int{"foo": 1, "bar": 2}
+	if maps.Equal(new, new2) {
+		fmt.Println("new == new2")
+	}
 }
