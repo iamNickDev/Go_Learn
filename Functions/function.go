@@ -26,6 +26,14 @@ func sum(nums ...int) {
 	fmt.Println(total)
 }
 
+func intSeq() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
+
 func main() {
 	res := plus(1, 2)
 	fmt.Println("1+2 =", res)
@@ -45,5 +53,14 @@ func main() {
 
 	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	sum(nums...)
+
+	nextInt := intSeq()
+
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+
+	newInt := intSeq()
+	fmt.Println(newInt())
 
 }
