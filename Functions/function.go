@@ -41,6 +41,14 @@ func fact(n int) int {
 	return n * fact(n-1)
 }
 
+func zeroval(ival int) {
+	ival = 0
+}
+
+func zeroptr(iptr *int) {
+	*iptr = 0
+}
+
 func main() {
 	res := plus(1, 2)
 	fmt.Println("1+2 =", res)
@@ -81,4 +89,16 @@ func main() {
 		return fib(n-1) + fib(n-2)
 	}
 	fmt.Println(fib(7))
+
+	i := 1
+	fmt.Println("initial:", i)
+
+	zeroval(&i)
+	fmt.Println("zeroval:", i)
+
+	zeroptr(i)
+	fmt.Println("zeroptr:", i)
+
+	fmt.Println("pointer:", &i)
+
 }
