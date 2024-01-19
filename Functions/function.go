@@ -5,6 +5,17 @@ import (
 	"unicode/utf8"
 )
 
+type person struct {
+	name string
+	age  int
+}
+
+func newPerson(name string) *person {
+	p := person{name: name}
+	p.age = 42
+	return &p
+}
+
 func plus(a int, b int) int {
 	return a + b
 }
@@ -124,6 +135,35 @@ func main() {
 		w = width
 		examineRune(runeValue)
 	}
+
+	fmt.Println(person{"Radha", 20})
+
+	fmt.Println(person{name: "kanha", age: 30})
+
+	fmt.Println(person{name: "mor"})
+
+	fmt.Println(&person{name: "shyambihari", age: 100000000000})
+
+	fmt.Println(newPerson("kano"))
+
+	strct := person{name: "lalju", age: 100000000000000000}
+	fmt.Println(strct.name)
+
+	sp := &strct
+	fmt.Println(sp.age)
+
+	sp.age = 51
+	fmt.Println(sp.age)
+
+	God := struct {
+		name   string
+		isGood bool
+	}{
+		"vishnu",
+		true,
+	}
+
+	fmt.Println(God)
 }
 
 func examineRune(r rune) {
