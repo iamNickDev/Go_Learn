@@ -26,7 +26,22 @@ func calculate(s Shape) float32 {
 	return s.area()
 }
 
+func displayValue(i ...interface{}) {
+	fmt.Println(i...)
+}
+
 func main() {
+
+	var a interface{}
+	fmt.Println("Value: ", a)
+
+	j := "welcome to Bharat"
+	b := 20
+	c := false
+
+	displayValue(j)
+	displayValue(j, b)
+	displayValue(j, b, c)
 
 	r := Rectangle{7, 4}
 	t := Tringle{8, 12}
