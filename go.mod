@@ -1,3 +1,3 @@
-module Go_Learn.go
+module Go_Learn
 
-go 1.21.3
+go 1.21.5
