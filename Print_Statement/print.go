@@ -11,14 +11,22 @@ import (
 )
 
 func main() {
-	fmt.Print("Radha, ")
+	fmt.Print("Radha\n")
 	fmt.Print("Radha!\n")
 
-	name := "Radha"
+	name := "Radha\n"
 	fmt.Print(name)
-	fmt.Print("\nName:", name)
+	fmt.Print("Name:", name)
 
-	naam := "\nRadha"
-	fmt.Println(naam)
+	naam := "Radha"
+	fmt.Println("Suddh Naam:", naam)
+
+	var ladliju = "Radhaji"
+	lilaye := 1000000000
+
+	fmt.Printf("%s did %d of lilas with lalju ", ladliju, lilaye)
+
+	println("\njai shree krishna")
+	println(10)
 
 }
