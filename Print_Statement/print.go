@@ -30,3 +30,11 @@ func main() {
 	println(10)
 
 }
+
+// In Go, every data type has a unique format specifier.
+
+// Data Type	Format Specifier
+// integer		%d
+// float		%g
+// string		%s
+// bool			%t
