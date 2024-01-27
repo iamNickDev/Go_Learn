@@ -1,3 +1,5 @@
+package main
+
 // We use the relational operators to compare two values or variables. For example,
 
 // 5 == 6

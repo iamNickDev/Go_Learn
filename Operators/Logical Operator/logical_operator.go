@@ -1,3 +1,4 @@
+package main
 
 // Logical Operators in Go
 // We use the logical operators to perform logical operations. A logical operator returns either true or false depending upon the conditions.
