@@ -16,6 +16,7 @@ func main() {
 
 	// type conversion from float to int
 	var intValue int = int(floatValue)
+
 	// type conversion from int to float
 	var floatingValue float32 = float32(integerValue)
 
