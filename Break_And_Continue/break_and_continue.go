@@ -11,6 +11,7 @@ func main() {
 		fmt.Println(i)
 	}
 
+	// break-nested-loop Go break statement with nested loops
 	for m := 1; m <= 3; m++ {
 		for j := 1; j <= 3; j++ {
 			if m == 2 {
@@ -20,10 +21,21 @@ func main() {
 		}
 	}
 
+	// Go continue statement
 	for i := 1; i <= 5; i++ {
 		if i == 3 {
 			continue
 		}
 		fmt.Println("i=", i)
+	}
+
+	// Go continue statement with nested loops
+	for i := 1; i <= 3; i++ {
+		for j := 1; j <= 3; j++ {
+			if j == 2 {
+				continue
+			}
+			fmt.Println("i=", i, "j=", j)
+		}
 	}
 }
