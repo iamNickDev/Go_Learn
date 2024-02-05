@@ -13,9 +13,7 @@ func addNumbers() {
 
 func main() {
 	addNumbers()
-
 	// cannot access sum out of its local scope
 	// fmt.Println("Sum is: ", sum)
-
 	fmt.Println("Plus is", sum)
 }
