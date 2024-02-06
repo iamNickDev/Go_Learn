@@ -2,7 +2,9 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func countDown(number int) {
 
@@ -26,10 +28,22 @@ func sum(number1 int) int {
 	}
 }
 
-func facto
+func factorial(numb int) int {
+	if numb == 0 {
+		return 1
+	} else {
+		return numb * factorial(numb-1)
+	}
+}
+
 func main() {
 	countDown(3)
 	var num = 50
 	var result = sum(num)
 	fmt.Println("Sum:", result)
+
+	var numb = 3
+
+	var result1 = factorial(numb)
+	fmt.Println("The factorial of 3 is:", result1)
 }
