@@ -33,6 +33,15 @@ func calculate() func() int {
 	}
 }
 
+func displayNumber() func() int {
+	number := 0
+
+	return func() int {
+		number++
+		return number
+	}
+}
+
 func main() {
 	greet("radhaji")
 	g1 := greet1()
@@ -47,5 +56,16 @@ func main() {
 	fmt.Println(odd())
 	fmt.Println(odd())
 	fmt.Println(odd())
+
+	num1 := displayNumber()
+
+	fmt.Println(num1())
+	fmt.Println(num1())
+	fmt.Println(num1())
+
+	num2 := displayNumber()
+
+	fmt.Println(num2())
+	fmt.Println(num2())
 
 }
