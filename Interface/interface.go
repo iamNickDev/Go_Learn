@@ -2,14 +2,17 @@ package main
 
 import "fmt"
 
+// interface
 type Shape interface {
 	area() float32
 }
 
+// struct to implement interface
 type Rectangle struct {
 	length, breadth float32
 }
 
+// use struct to implement area() of interface
 func (t Tringle) area() float32 {
 	return 0.5 * t.base * t.height
 }
@@ -22,6 +25,7 @@ type Tringle struct {
 	base, height float32
 }
 
+// access method of the interface
 func calculate(s Shape) float32 {
 	return s.area()
 }
@@ -30,6 +34,7 @@ func displayValue(i ...interface{}) {
 	fmt.Println(i...)
 }
 
+// main function
 func main() {
 
 	var a interface{}
